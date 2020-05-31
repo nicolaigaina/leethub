@@ -33,7 +33,11 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:us-east-1:*:*"
+      # Restrict our IAM role permissions to
+      # the specific table for the stage
+      Resource:
+        - "Fn::GetAtt": [ PostsTable, Arn ]
+
 
 functions:
   # Defines an HTTP API endpoint that calls the main function in controllers/create.js
@@ -47,5 +51,16 @@ functions:
       - http:
           path: posts
           method: post
+          cors: true
+          authorizer: aws_iam
+  get:
+  # Defines an HTTP API endpoint that calls the main function in get.js
+  # - path: url path is /notes/{id}
+  # - method: GET request
+    handler: controllers/get.main
+    events:
+      - http:
+          path: posts/{id}
+          method: get
           cors: true
           authorizer: aws_iam
