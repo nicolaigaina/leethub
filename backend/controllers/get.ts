@@ -1,5 +1,5 @@
-import handler from '../libs/handler-lib';
-import dynamoDb from '../libs/dynamodb-lib';
+import handler from '../libs/lambdaHandler';
+import dynamoDb from '../libs/dynamodb';
 
 const get = async (event: EventHandler, _context: any) => {
   const params: GetPost = {
