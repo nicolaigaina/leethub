@@ -1,10 +1,11 @@
 import * as uuid from 'uuid';
 import handler from "../libs/lambdaHandler";
 import dynamoDb from "../libs/dynamodb";
+import { DocumentClient } from 'aws-sdk/lib/dynamodb/document_client';
 
-const create = async (event: EventHandler, _context: any) => {
+const createPost = async (event: EventHandler, _context: any) => {
   const data = JSON.parse(event.body);
-  const params: CreatePost = {
+  const params: DocumentClient.PutItemInput = {
     TableName: process.env.tableName as string,
     // 'Item' contains the attributes of the item to be created
     // - 'userId': user identities are federated through the
@@ -28,4 +29,4 @@ const create = async (event: EventHandler, _context: any) => {
   return params.Item;
 }
 
-export const main = handler(create);
+export const main = handler(createPost);

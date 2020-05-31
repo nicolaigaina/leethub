@@ -48,9 +48,9 @@ provider:
 
 
 functions:
-  # Defines an HTTP API endpoint that calls the main function in controllers/create.js
+  # Defines an HTTP API endpoint that calls the main function in controllers
   # - path: url path is /posts
-  # - method: POST request
+  # - method: POST/GET/PUT request
   # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross domain api call
   # - authorizer: authenticate using the AWS IAM role
   create:
@@ -62,13 +62,18 @@ functions:
           cors: true
           authorizer: aws_iam
   get:
-  # Defines an HTTP API endpoint that calls the main function in get.js
-  # - path: url path is /notes/{id}
-  # - method: GET request
     handler: controllers/get.main
     events:
       - http:
           path: posts/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+  list:
+    handler: controllers/list.main
+    events:
+      - http:
+          path: posts
           method: get
           cors: true
           authorizer: aws_iam
