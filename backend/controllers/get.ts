@@ -1,9 +1,9 @@
 import handler from '../libs/handler-lib';
 import dynamoDb from '../libs/dynamodb-lib';
 
-export const main = handler(async (event, context) => {
-  const params = {
-    TableName: process.env.tableName,
+const get = async (event: EventHandler, _context: any) => {
+  const params: GetPost = {
+    TableName: process.env.tableName as string,
     // 'Key' defines the partition key and sort key of the item to be retrieved
     // - 'userId': Identity Pool identity id of the authenticated user
     // - 'postId': path parameter
@@ -20,4 +20,6 @@ export const main = handler(async (event, context) => {
 
   //Return the retrieved item
   return result.Item;
-});
+}
+
+export const main = handler(get);
