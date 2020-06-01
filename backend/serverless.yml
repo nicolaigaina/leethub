@@ -77,3 +77,11 @@ functions:
           method: get
           cors: true
           authorizer: aws_iam
+  update:
+    handler: controllers/update.main
+    events:
+      - http:
+          path: posts/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
