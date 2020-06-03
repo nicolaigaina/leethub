@@ -3,7 +3,13 @@
   "version": "1.1.0",
   "description": "leethub api repo",
   "scripts": {
-    "test": "serverless-bundle test"
+    "test": "serverless-bundle test",
+    "test-billing": "serverless invoke local --function billing --path mocks/billing-event.json",
+    "test-create": "serverless invoke local --function create --path mocks/create-event.json",
+    "test-delete": "serverless invoke local --function delete --path mocks/delete-event.json",
+    "test-get": "serverless invoke local --function get --path mocks/get-event.json",
+    "test-list": "serverless invoke local --function list --path mocks/list-event.json",
+    "test-update": "serverless invoke local --function update --path mocks/update-event.json"
   },
   "author": "",
   "license": "MIT",
@@ -25,6 +31,8 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "stripe": "^8.56.0",
+    "typescript": "^3.9.3",
     "uuid": "^7.0.3"
   }
 }
