@@ -1,11 +1,12 @@
 import * as uuid from 'uuid';
-import handler from "../libs/handler-lib";
-import dynamoDb from "../libs/dynamodb-lib";
+import handler from "../libs/lambdaHandler";
+import dynamoDb from "../libs/dynamodb";
+import { DocumentClient } from 'aws-sdk/lib/dynamodb/document_client';
 
-export const main = handler(async (event, context) => {
+const createPost = async (event: EventHandler, _context: any) => {
   const data = JSON.parse(event.body);
-  const params = {
-    TableName: process.env.tableName,
+  const params: DocumentClient.PutItemInput = {
+    TableName: process.env.tableName as string,
     // 'Item' contains the attributes of the item to be created
     // - 'userId': user identities are federated through the
     //             Cognito Identity Pool, we will use the identity id
@@ -26,4 +27,6 @@ export const main = handler(async (event, context) => {
   await dynamoDb.put(params);
 
   return params.Item;
-});
+}
+
+export const main = handler(createPost);
