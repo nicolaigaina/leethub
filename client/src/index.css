@@ -20,15 +20,3 @@ input.form-control {
 input[type=file] {
  width: 100%;
 }
-
-.App {
-  margin-top: 15px;
-}
-
-.App .navbar-brand {
-  font-weight: bold;
-}
-
-.App .navbar-brand a:hover {
-  text-decoration: none;
-}
