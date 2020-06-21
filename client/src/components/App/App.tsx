@@ -15,6 +15,8 @@ const App: React.FC = () => {
       userHasAuthenticated(true);
     } catch (e) {
       if (e !== 'No current user') {
+        // eslint-disable-next-line
+        // TODO: fix by adding toast notifications
         alert(e);
       }
     }
