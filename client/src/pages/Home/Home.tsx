@@ -8,6 +8,6 @@ const Home: React.FC = () => (
       <p>Blog powered by Nic Gaina</p>
     </div>
   </div>
-)
+);
 
 export default Home;

@@ -1,24 +1,23 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Form, Button, FormControl } from 'react-bootstrap';
-import { LinkContainer } from "react-router-bootstrap";
+import { LinkContainer } from 'react-router-bootstrap';
 import './Navigation.css';
 import { Auth } from 'aws-amplify';
 
-
 type Props = {
   isAuthenticated: boolean;
-  userHasAuthenticated: React.Dispatch<React.SetStateAction<boolean>>
-}
+  userHasAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-const Navigation: React.FC<Props> = ({ isAuthenticated, userHasAuthenticated }) => {
+const Navigation: React.FC<Props> = ({ isAuthenticated, userHasAuthenticated }: Props) => {
   const history = useHistory();
 
   const handleLogout = async () => {
     await Auth.signOut();
     userHasAuthenticated(false);
     history.push('/signin');
-  }
+  };
 
   return (
     <Navbar bg="light" expand="lg" className="Navigation">
@@ -43,8 +42,9 @@ const Navigation: React.FC<Props> = ({ isAuthenticated, userHasAuthenticated }) 
           <Button variant="outline-success">Search</Button>
         </Form>
         <Nav>
-          {isAuthenticated ? <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-            :
+          {isAuthenticated ? (
+            <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+          ) : (
             <>
               <LinkContainer to="/signup">
                 <Nav.Link href="#signup">Signup</Nav.Link>
@@ -52,11 +52,12 @@ const Navigation: React.FC<Props> = ({ isAuthenticated, userHasAuthenticated }) 
               <LinkContainer to="/signin">
                 <Nav.Link href="#signin">Sigin</Nav.Link>
               </LinkContainer>
-            </>}
+            </>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
   );
-}
+};
 
 export default Navigation;
