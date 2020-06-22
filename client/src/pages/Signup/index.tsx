@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ISignUpResult } from 'amazon-cognito-identity-js';
 import SignupForm from './SignupForm';
-import ConfirmiationForm from './ConfirmationForm';
+import ConfirmSignupForm from './ConfirmSignupForm';
 import './Signup.css';
 import useFormFields from '../../libs/useFormFields';
 
@@ -26,7 +26,7 @@ const Signup: React.FC = () => {
           createChangeHandler={createChangeHandler}
         />
       ) : (
-        <ConfirmiationForm
+        <ConfirmSignupForm
           email={email}
           password={password}
           confirmationCode={confirmationCode}

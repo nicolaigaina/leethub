@@ -15,7 +15,7 @@ type Props = {
   confirmationCode: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
-const ConfirmiationForm: React.FC<Props> = ({ email, password, confirmationCode, onChange }: Props) => {
+const ConfirmSignupForm: React.FC<Props> = ({ email, password, confirmationCode, onChange }: Props) => {
   const history = useHistory();
   const { userHasAuthenticated } = useAppContext() as UserSession;
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -56,4 +56,4 @@ const ConfirmiationForm: React.FC<Props> = ({ email, password, confirmationCode,
   );
 };
 
-export default ConfirmiationForm;
+export default ConfirmSignupForm;
