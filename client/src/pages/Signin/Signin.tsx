@@ -15,8 +15,7 @@ const Signin: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const history = useHistory();
   const { userHasAuthenticated } = useAppContext() as UserSession;
-  const { email } = formFields;
-  const { password } = formFields;
+  const { email, password } = formFields;
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
