@@ -8,8 +8,8 @@ const onError = (error: GenericError) => {
   if (!(error instanceof Error) && (error as GenericError).message) {
     message = (error as GenericError).message;
   }
-  // eslint-disable-next-line
   // TODO: fix by adding toast notifications
+  // eslint-disable-next-line
   alert(message);
 };
 

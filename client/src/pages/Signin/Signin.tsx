@@ -6,15 +6,17 @@ import { useHistory } from 'react-router-dom';
 import { useAppContext, UserSession } from '../../libs/appContext';
 import LoaderButton from '../../components/LoaderButton';
 import onError from '../../libs/errorHandler';
+import useFormFields from '../../libs/useFormFields';
 
 const validateForm = (email: string, password: string) => email.length > 0 && password.length > 0;
 
 const Signin: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const { formFields, createChangeHandler } = useFormFields({ email: '', password: '' });
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const history = useHistory();
   const { userHasAuthenticated } = useAppContext() as UserSession;
+  const { email } = formFields;
+  const { password } = formFields;
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -40,7 +42,7 @@ const Signin: React.FC = () => {
             type="email"
             value={email}
             placeholder="Enter email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={createChangeHandler('email')}
           />
         </Form.Group>
         <Form.Group controlId="formGroupPassword">
@@ -49,7 +51,7 @@ const Signin: React.FC = () => {
             type="password"
             value={password}
             placeholder="Enter password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={createChangeHandler('password')}
           />
         </Form.Group>
         <LoaderButton isLoading={isLoading} disabled={!validateForm(email, password)} type="submit">
