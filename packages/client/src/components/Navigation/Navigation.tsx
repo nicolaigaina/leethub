@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown, Form, Button, FormControl } from 'react-bootstrap';
+import {
+  Navbar, Nav, NavDropdown, Form, Button, FormControl,
+} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import './Navigation.css';
 import { Auth } from 'aws-amplify';

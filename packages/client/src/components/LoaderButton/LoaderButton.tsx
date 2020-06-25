@@ -10,7 +10,9 @@ type Props = {
   children: React.ReactNode;
 };
 
-const LoaderButton: React.FC<Props> = ({ isLoading, type, disabled = false, children }: Props) => (
+const LoaderButton: React.FC<Props> = ({
+  isLoading, type, disabled = false, children,
+}: Props) => (
   <Button block type={type} className="LoaderButton" disabled={disabled || isLoading}>
     {isLoading && (
       <Spinner as="span" size="sm" animation="grow" role="status" aria-hidden="true">

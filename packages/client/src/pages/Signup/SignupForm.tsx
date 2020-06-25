@@ -5,8 +5,13 @@ import { Auth } from 'aws-amplify';
 import LoaderButton from '../../components/LoaderButton';
 import onError from '../../libs/errorHandler';
 
-const validateForm = (email: string, password: string, confirmPassword: string) =>
-  email.length > 0 && password.length > 0 && password === confirmPassword;
+const validateForm = (
+  email: string,
+  password: string,
+  confirmPassword: string,
+) => email.length > 0
+  && password.length > 0
+  && password === confirmPassword;
 
 type Props = {
   setNewUser: (value: React.SetStateAction<ISignUpResult | null>) => void;
@@ -18,7 +23,9 @@ type Props = {
   ) => (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const SignupForm: React.FC<Props> = ({ setNewUser, email, password, confirmPassword, createChangeHandler }: Props) => {
+const SignupForm: React.FC<Props> = ({
+  setNewUser, email, password, confirmPassword, createChangeHandler,
+}: Props) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSubmit = async (event: FormEvent) => {

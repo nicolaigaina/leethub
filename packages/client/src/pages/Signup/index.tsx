@@ -13,7 +13,9 @@ const Signup: React.FC = () => {
     confirmPassword: '',
     confirmationCode: '',
   });
-  const { email, password, confirmPassword, confirmationCode } = formFields;
+  const {
+    email, password, confirmPassword, confirmationCode,
+  } = formFields;
 
   return (
     <div className="Signup">
