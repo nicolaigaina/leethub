@@ -7,12 +7,17 @@
  * @param postsCount
  */
 const calculateCost = (postsCount: number) => {
-  const rate = postsCount <= 10
-    ? 4
-    : postsCount <= 100
-      ? 2
-      : 1;
+  let rate;
+
+  if (postsCount <= 10) {
+    rate = 4;
+  } else if (postsCount <= 100) {
+    rate = 2;
+  } else {
+    rate = 1;
+  }
+
   return rate * postsCount * 100;
-}
+};
 
 export default calculateCost;

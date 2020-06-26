@@ -1,9 +1,9 @@
 import * as uuid from 'uuid';
-import handler from "../libs/lambdaHandler";
-import dynamoDb from "../libs/dynamodb";
 import { DocumentClient } from 'aws-sdk/lib/dynamodb/document_client';
+import handler from '../libs/lambdaHandler';
+import dynamoDb from '../libs/dynamodb';
 
-const createPost = async (event: EventHandler, _context: any) => {
+const createPost = async (event: EventHandler) => {
   const data = JSON.parse(event.body);
   const params: DocumentClient.PutItemInput = {
     TableName: process.env.tableName as string,
@@ -20,13 +20,13 @@ const createPost = async (event: EventHandler, _context: any) => {
       postId: uuid.v1(),
       content: data.content,
       attachment: data.attachment,
-      createdAt: Date.now()
-    }
+      createdAt: Date.now(),
+    },
   };
 
   await dynamoDb.put(params);
 
   return params.Item;
-}
+};
 
-export const main = handler(createPost);
+export default handler(createPost);

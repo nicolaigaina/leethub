@@ -1,8 +1,8 @@
+import { DocumentClient } from 'aws-sdk/lib/dynamodb/document_client';
 import handler from '../libs/lambdaHandler';
 import dynamoDb from '../libs/dynamodb';
-import { DocumentClient } from 'aws-sdk/lib/dynamodb/document_client';
 
-const deletePost = async (event: EventHandler, _context: any) => {
+const deletePost = async (event: EventHandler) => {
   const params: DocumentClient.GetItemInput = {
     TableName: process.env.tableName as string,
     // 'Key' defines the partition key and sort key of the item to be retrieved
@@ -10,8 +10,8 @@ const deletePost = async (event: EventHandler, _context: any) => {
     // - 'postId': path parameter
     Key: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      postId: event.pathParameters.id
-    }
+      postId: event.pathParameters.id,
+    },
   };
 
   const result = await dynamoDb.get(params);
@@ -22,6 +22,6 @@ const deletePost = async (event: EventHandler, _context: any) => {
   await dynamoDb.delete(params);
 
   return { status: true };
-}
+};
 
-export const main = handler(deletePost);
+export default handler(deletePost);

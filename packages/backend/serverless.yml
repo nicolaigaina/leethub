@@ -54,7 +54,7 @@ functions:
   # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross domain api call
   # - authorizer: authenticate using the AWS IAM role
   create:
-    handler: controllers/create.main
+    handler: controllers/create.default
     events:
       - http:
           path: posts
@@ -62,7 +62,7 @@ functions:
           cors: true
           authorizer: aws_iam
   get:
-    handler: controllers/get.main
+    handler: controllers/get.default
     events:
       - http:
           path: posts/{id}
@@ -70,7 +70,7 @@ functions:
           cors: true
           authorizer: aws_iam
   list:
-    handler: controllers/list.main
+    handler: controllers/list.default
     events:
       - http:
           path: posts
@@ -78,7 +78,7 @@ functions:
           cors: true
           authorizer: aws_iam
   update:
-    handler: controllers/update.main
+    handler: controllers/update.default
     events:
       - http:
           path: posts/{id}
@@ -86,7 +86,7 @@ functions:
           cors: true
           authorizer: aws_iam
   delete:
-    handler: controllers/delete.main
+    handler: controllers/delete.default
     events:
       - http:
           path: posts/{id}
@@ -94,7 +94,7 @@ functions:
           cors: true
           authorizer: aws_iam
   billing:
-    handler: controllers/billing.main
+    handler: controllers/billing.default
     events:
       - http:
           path: billing

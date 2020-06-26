@@ -24,4 +24,4 @@ describe('calculateCost', () => {
     expectedCost = calculateCost(storage);
     expect(cost).toEqual(expectedCost);
   });
-})
+});
