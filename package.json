@@ -5,13 +5,17 @@
   "repository": "https://github.com/nicolaigaina/leethub.git",
   "author": "Nicolai Gaina <nicolaigaina@gmail.com>",
   "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "husky": "^4.2.5",
     "lerna": "^3.22.1"
   },
   "scripts": {
     "lint": "lerna run lint --stream",
-    "lint:fix": "lerna run lint:fix --stream"
+    "lint:fix": "lerna run lint:fix --stream",
+    "test": "lerna run test"
   },
   "husky": {
     "hooks": {
