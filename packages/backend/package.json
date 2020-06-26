@@ -11,9 +11,16 @@
     "test-list": "serverless invoke local --function list --path mocks/list-event.json",
     "test-update": "serverless invoke local --function update --path mocks/update-event.json",
     "lint": "eslint . --ext .js,.ts",
-    "lint:fix": "eslint . --ext .js,.ts --fix"
+    "lint:fix": "eslint . --ext .js,.ts --fix",
+    "precommit": "lint-staged && yarn test"
   },
-  "author": "",
+  "lint-staged": {
+    "**/*.ts": [
+      "yarn lint:fix",
+      "git add"
+    ]
+  },
+  "author": "Nic Gaina",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -31,6 +38,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.21.2",
     "jest": "^26.1.0",
+    "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "serverless-bundle": "^1.7.0",
     "serverless-dotenv-plugin": "^2.4.2",

@@ -6,6 +6,12 @@
   "author": "Nicolai Gaina <nicolaigaina@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "husky": "^4.2.5",
     "lerna": "^3.22.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lerna run --concurrency 1 --stream precommit"
+    }
   }
 }
