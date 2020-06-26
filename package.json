@@ -9,6 +9,10 @@
     "husky": "^4.2.5",
     "lerna": "^3.22.1"
   },
+  "scripts": {
+    "lint": "lerna run lint --stream",
+    "lint:fix": "lerna run lint:fix --stream"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npx lerna run --concurrency 1 --stream precommit"
