@@ -1,11 +1,10 @@
 import React, { FormEvent, useState } from 'react';
-
 import { Form } from 'react-bootstrap';
 import { Auth } from 'aws-amplify';
 import { useHistory } from 'react-router-dom';
-import LoaderButton from '../../components/LoaderButton';
+import { LoaderButton } from '@leethub/shared';
+import { onError } from '@leethub/utils';
 import { useAppContext, UserSession } from '../../libs/appContext';
-import onError from '../../libs/errorHandler';
 
 const validateConfirmationForm = (confirmationCode: string) => confirmationCode.length > 0;
 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { ISignUpResult } from 'amazon-cognito-identity-js';
+import { useFormFields } from '@leethub/utils';
 import SignupForm from './SignupForm';
 import ConfirmSignupForm from './ConfirmSignupForm';
 import './Signup.css';
-import useFormFields from '../../libs/useFormFields';
 
 const Signup: React.FC = () => {
   const [newUser, setNewUser] = useState<ISignUpResult | null>(null);
@@ -17,24 +17,30 @@ const Signup: React.FC = () => {
     email, password, confirmPassword, confirmationCode,
   } = formFields;
 
+  const RenderSignupForm = (
+    <SignupForm
+      email={email}
+      password={password}
+      confirmPassword={confirmPassword}
+      setNewUser={setNewUser}
+      createChangeHandler={createChangeHandler}
+    />
+  );
+
+  const RenderConfirmSignupForm = (
+    <ConfirmSignupForm
+      email={email}
+      password={password}
+      confirmationCode={confirmationCode}
+      onChange={createChangeHandler('confirmationCode')}
+    />
+  );
+
   return (
     <div className="Signup">
-      {newUser === null ? (
-        <SignupForm
-          email={email}
-          password={password}
-          confirmPassword={confirmPassword}
-          setNewUser={setNewUser}
-          createChangeHandler={createChangeHandler}
-        />
-      ) : (
-        <ConfirmSignupForm
-          email={email}
-          password={password}
-          confirmationCode={confirmationCode}
-          onChange={createChangeHandler('confirmationCode')}
-        />
-      )}
+      {newUser === null
+        ? RenderSignupForm
+        : RenderConfirmSignupForm}
     </div>
   );
 };

@@ -21,13 +21,13 @@
     "skipLibCheck": true,
     "target": "es5",
     "module": "esnext",
-    "jsx": "react"
+    "jsx": "preserve"
   },
   "include": [
     "src"
   ],
   "exclude": [
-    "**/node_modules/**",
+    "../../node_modules",
     "node_modules",
     "build"
   ]

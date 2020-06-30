@@ -2,15 +2,15 @@ import { Form } from 'react-bootstrap';
 import { ISignUpResult } from 'amazon-cognito-identity-js';
 import React, { FormEvent, useState } from 'react';
 import { Auth } from 'aws-amplify';
-import LoaderButton from '../../components/LoaderButton';
-import onError from '../../libs/errorHandler';
+import { LoaderButton } from '@leethub/shared';
+import { onError } from '@leethub/utils';
 
 const validateForm = (
   email: string,
   password: string,
   confirmPassword: string,
 ) => email.length > 0
-  && password.length > 0
+&& password.length > 0
   && password === confirmPassword;
 
 type Props = {

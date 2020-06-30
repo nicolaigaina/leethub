@@ -1,5 +1,5 @@
 {
-  "name": "@leethub/shared",
+  "name": "@leethub/utils",
   "version": "1.0.0",
   "author": {
     "name": "Nicolai Gaina <nicolaigaina@gmail.com>",
@@ -17,23 +17,15 @@
   },
   "dependencies": {
     "@types/react": "^16.9.41",
-    "@types/react-bootstrap": "^1.0.1",
-    "@types/react-dom": "^16.9.8",
-    "react": "^16.13.1",
-    "react-bootstrap": "^1.0.1",
-    "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1",
-    "typescript": "^3.9.5"
+    "react": "^16.13.1"
   },
   "peerDependencies": {
-    "@types/node": "^14.0.14",
-    "@typescript-eslint/eslint-plugin": "^3.5.0",
-    "@typescript-eslint/parser": "^3.5.0",
+    "@types/node": ">=13.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-simple-import-sort": "^5.0.3"
-  },
-  "devDependencies": {
-    "@types/styled-components": "^5.1.0"
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "typescript": ">=3.7.2"
   }
 }
