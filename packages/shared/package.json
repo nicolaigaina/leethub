@@ -1,0 +1,38 @@
+{
+  "name": "@leethub/shared",
+  "version": "0.1.0",
+  "author": {
+    "name": "Nicolai Gaina",
+    "url": "http://leethub.com"
+  },
+  "private": true,
+  "scripts": {
+    "start": "tsc -p tsconfig.json -w",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "eslint . --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx",
+    "lint:fix": "eslint --fix . --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "yarn lint:fix",
+      "git add"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

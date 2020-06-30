@@ -1,9 +1,12 @@
 {
   "name": "leethub",
   "version": "0.0.1",
+  "author": {
+    "name": "Nicolai Gaina <nicolaigaina@gmail.com>",
+    "url": "http://leethub.com"
+  },
   "private": true,
   "repository": "https://github.com/nicolaigaina/leethub.git",
-  "author": "Nicolai Gaina <nicolaigaina@gmail.com>",
   "license": "MIT",
   "workspaces": {
     "packages": [
