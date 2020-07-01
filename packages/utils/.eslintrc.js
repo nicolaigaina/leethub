@@ -1,7 +1,5 @@
-const path = require('path');
-
 module.exports = {
-  extends: "../../.eslintrc.json",
+  extends: "../../eslint-config-global.js",
   parserOptions: {
     project: "./tsconfig.json",
     ecmaFeatures: {
@@ -9,14 +7,5 @@ module.exports = {
     },
     ecmaVersion: 2018,
     sourceType: "module"
-  },
-  rules: {
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        packageDir: [process.cwd(),
-        path.resolve(__dirname, './')]
-      }
-    ]
   }
 }
