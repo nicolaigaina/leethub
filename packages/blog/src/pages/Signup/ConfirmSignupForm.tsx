@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { LoaderButton } from '@leethub/shared';
 import { onError } from '@leethub/utils';
 import { useAppContext, UserSession } from '../../libs/appContext';
+import { StyledForm, StyledFormGroup } from './styled';
 
 const validateConfirmationForm = (confirmationCode: string) => confirmationCode.length > 0;
 
@@ -38,8 +39,8 @@ const ConfirmSignupForm: React.FC<Props> = ({
   };
 
   return (
-    <Form onSubmit={handleConfirmationSubmit}>
-      <Form.Group controlId="confirmationCode">
+    <StyledForm onSubmit={handleConfirmationSubmit}>
+      <StyledFormGroup controlId="confirmationCode">
         <Form.Label>Confirmation Code</Form.Label>
         <Form.Control
           autoFocus
@@ -49,11 +50,11 @@ const ConfirmSignupForm: React.FC<Props> = ({
           onChange={onChange}
         />
         <Form.Text className="text-muted">Please check your email for the code.</Form.Text>
-      </Form.Group>
+      </StyledFormGroup>
       <LoaderButton isLoading={isLoading} disabled={!validateConfirmationForm(confirmationCode)} type="submit">
         Verify
       </LoaderButton>
-    </Form>
+    </StyledForm>
   );
 };
 

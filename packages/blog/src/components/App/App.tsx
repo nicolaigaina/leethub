@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Auth } from 'aws-amplify';
 import Routes from '../../routes';
-import './App.css';
+import Container from './styled';
 import Navigation from '../Navigation';
 import { AppContext } from '../../libs/appContext';
 
@@ -29,12 +29,12 @@ const App: React.FC = () => {
   }, []);
 
   return !isAuthenticating ? (
-    <div className="App container">
+    <Container>
       <Navigation {...{ isAuthenticated, userHasAuthenticated }} />
       <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
         <Routes />
       </AppContext.Provider>
-    </div>
+    </Container>
   ) : null;
 };
 

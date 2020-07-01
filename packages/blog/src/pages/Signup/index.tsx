@@ -3,7 +3,7 @@ import { ISignUpResult } from 'amazon-cognito-identity-js';
 import { useFormFields } from '@leethub/utils';
 import SignupForm from './SignupForm';
 import ConfirmSignupForm from './ConfirmSignupForm';
-import './Signup.css';
+import { FormContainer } from './styled';
 
 const Signup: React.FC = () => {
   const [newUser, setNewUser] = useState<ISignUpResult | null>(null);
@@ -37,11 +37,11 @@ const Signup: React.FC = () => {
   );
 
   return (
-    <div className="Signup">
+    <FormContainer>
       {newUser === null
         ? RenderSignupForm
         : RenderConfirmSignupForm}
-    </div>
+    </FormContainer>
   );
 };
 

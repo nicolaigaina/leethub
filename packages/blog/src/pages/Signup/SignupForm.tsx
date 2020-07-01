@@ -4,6 +4,7 @@ import React, { FormEvent, useState } from 'react';
 import { Auth } from 'aws-amplify';
 import { LoaderButton } from '@leethub/shared';
 import { onError } from '@leethub/utils';
+import { StyledForm, StyledFormGroup } from './styled';
 
 const validateForm = (
   email: string,
@@ -46,8 +47,8 @@ const SignupForm: React.FC<Props> = ({
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="formGroupEmail">
+    <StyledForm onSubmit={handleSubmit}>
+      <StyledFormGroup controlId="formGroupEmail">
         <Form.Label>Email</Form.Label>
         <Form.Control
           autoFocus
@@ -56,8 +57,8 @@ const SignupForm: React.FC<Props> = ({
           placeholder="Enter email"
           onChange={createChangeHandler('email')}
         />
-      </Form.Group>
-      <Form.Group controlId="formGroupPassword">
+      </StyledFormGroup>
+      <StyledFormGroup controlId="formGroupPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control
           type="password"
@@ -65,8 +66,8 @@ const SignupForm: React.FC<Props> = ({
           placeholder="Enter password"
           onChange={createChangeHandler('password')}
         />
-      </Form.Group>
-      <Form.Group controlId="formGroupConfirmPassword">
+      </StyledFormGroup>
+      <StyledFormGroup controlId="formGroupConfirmPassword">
         <Form.Label>Confirm Password</Form.Label>
         <Form.Control
           type="password"
@@ -74,11 +75,11 @@ const SignupForm: React.FC<Props> = ({
           placeholder="Confirm password"
           onChange={createChangeHandler('confirmPassword')}
         />
-      </Form.Group>
+      </StyledFormGroup>
       <LoaderButton isLoading={isLoading} disabled={!validateForm(email, password, confirmPassword)} type="submit">
         Signup
       </LoaderButton>
-    </Form>
+    </StyledForm>
   );
 };
 

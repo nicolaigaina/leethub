@@ -1,11 +1,11 @@
 import React, { useState, FormEvent } from 'react';
 import { Form } from 'react-bootstrap';
 import { Auth } from 'aws-amplify';
-import './Signin.css';
 import { useHistory } from 'react-router-dom';
 import { LoaderButton } from '@leethub/shared';
 import { onError, useFormFields } from '@leethub/utils';
 import { useAppContext, UserSession } from '../../libs/appContext';
+import { FormContainer, StyledForm, StyledFormGroup } from './styled';
 
 const validateForm = (email: string, password: string) => email.length > 0 && password.length > 0;
 
@@ -31,9 +31,9 @@ const Signin: React.FC = () => {
   };
 
   return (
-    <div className="Signin">
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formGroupEmail">
+    <FormContainer>
+      <StyledForm onSubmit={handleSubmit}>
+        <StyledFormGroup controlId="formGroupEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control
             autoFocus
@@ -42,8 +42,8 @@ const Signin: React.FC = () => {
             placeholder="Enter email"
             onChange={createChangeHandler('email')}
           />
-        </Form.Group>
-        <Form.Group controlId="formGroupPassword">
+        </StyledFormGroup>
+        <StyledFormGroup controlId="formGroupPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
@@ -51,12 +51,12 @@ const Signin: React.FC = () => {
             placeholder="Enter password"
             onChange={createChangeHandler('password')}
           />
-        </Form.Group>
+        </StyledFormGroup>
         <LoaderButton isLoading={isLoading} disabled={!validateForm(email, password)} type="submit">
           Signin
         </LoaderButton>
-      </Form>
-    </div>
+      </StyledForm>
+    </FormContainer>
   );
 };
 

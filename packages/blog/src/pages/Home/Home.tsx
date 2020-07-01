@@ -1,13 +1,11 @@
 import React from 'react';
-import './Home.css';
+import { Lander, H1, SubText } from './styled';
 
 const Home: React.FC = () => (
-  <div className="Home">
-    <div className="lander">
-      <h1>LeetHub</h1>
-      <p>Blog powered by Nic Gaina</p>
-    </div>
-  </div>
+  <Lander>
+    <H1>LeetHub</H1>
+    <SubText>Blog powered by Nic Gaina</SubText>
+  </Lander>
 );
 
 export default Home;

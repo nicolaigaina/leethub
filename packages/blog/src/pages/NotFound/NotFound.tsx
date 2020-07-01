@@ -1,10 +1,10 @@
 import React from 'react';
-import './NotFound.css';
+import Container from './styled';
 
 const NotFound: React.FC = () => (
-  <div className="NotFound">
+  <Container>
     <h3>Sorry, page not found!</h3>
-  </div>
+  </Container>
 );
 
 export default NotFound;

@@ -4,8 +4,8 @@ import {
   Navbar, Nav, NavDropdown, Form, Button, FormControl,
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import './Navigation.css';
 import { Auth } from 'aws-amplify';
+import Logo from './styled';
 
 type Props = {
   isAuthenticated: boolean;
@@ -23,9 +23,9 @@ const Navigation: React.FC<Props> = ({ isAuthenticated, userHasAuthenticated }: 
 
   return (
     <Navbar bg="light" expand="lg" className="Navigation">
-      <Navbar.Brand>
+      <Logo>
         <Link to="/">Leethub</Link>
-      </Navbar.Brand>
+      </Logo>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
