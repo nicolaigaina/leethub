@@ -9,8 +9,9 @@
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "scripts": {
-    "start": "tsc -p tsconfig.json -w",
+    "start": "echo \"Building 'utils' package...\" && tsc -p tsconfig.json",
     "build": "tsc -p tsconfig.json",
+    "build:clean": "rimraf build",
     "typecheck": "tsc -p tsconfig.json",
     "lint": "eslint . --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx",
     "lint:fix": "eslint --fix . --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx"

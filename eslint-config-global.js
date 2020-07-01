@@ -3,11 +3,14 @@ module.exports = {
     browser: true,
     es6: true,
     jest: true,
-    node: true
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: ['./tsconfig.json'],
+    project: './tsconfig.json',
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 2018,
     sourceType: 'module'
   },
   extends: [
