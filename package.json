@@ -55,7 +55,7 @@
     "amazon-cognito-identity-js": "^4.3.2",
     "aws-amplify": "^3.0.16",
     "bootstrap": "^4.5.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
